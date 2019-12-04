@@ -3,6 +3,7 @@ import random
 import board
 import neopixel
 import time
+import sys
 
 pixel_pin = board.D18
 
@@ -13,7 +14,7 @@ ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
 animation = []
 #BRG RGB
-f = open(argv[1],"r")
+f = open(sys.argv[1],"r")
 format = f.readline()
 comment = f.readline()
 dimensions = f.readline().split()
