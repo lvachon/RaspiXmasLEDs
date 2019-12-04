@@ -27,7 +27,7 @@ for i in range(1,len(sys.argv)):
 		animations[i-1].append([])
 		for x in range(0,int(dimensions[0])):
 			index = 3*(x+y*int(dimensions[0]))
-			animations[i][y].append((int(data[index+0]),int(data[index+1]),int(data[index+2])))
+			animations[i-i][y].append((int(data[index+0]),int(data[index+1]),int(data[index+2])))
 
 frameIndex=0
 animIndex=0
