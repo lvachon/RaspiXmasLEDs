@@ -45,4 +45,3 @@ while(True):
 			loopCount=0
 			animIndex=(animIndex+1)%animCount
 	time.sleep(0.05)
-	
