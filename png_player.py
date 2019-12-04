@@ -13,7 +13,7 @@ ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
 animation = []
 #BRG RGB
-f = open("sparklesNribbons.ppm","r")
+f = open(argv[1],"r")
 format = f.readline()
 comment = f.readline()
 dimensions = f.readline().split()
@@ -32,6 +32,5 @@ while(True):
 		pixels[x]=animation[animIndex][x]
 	pixels.show()
 	animIndex = (animIndex+1)%int(dimensions[1])
-	print(animIndex)
 	time.sleep(0.03)
 	
