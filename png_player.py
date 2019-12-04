@@ -33,5 +33,5 @@ while(True):
 		pixels[x]=animation[animIndex][x]
 	pixels.show()
 	animIndex = (animIndex+1)%int(dimensions[1])
-	time.sleep(0.06)
+	time.sleep(0.03)
 	
