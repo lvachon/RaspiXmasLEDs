@@ -32,26 +32,32 @@ ORDER = neopixel.GRB
 
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
-brights = []
+buffer = []
 offset = 0.0
-
+twinkleChance=1
+colorChance=10
 
 
 min_bright = 0
 max_bright = 255
 
 for i in range(0,num_pixels):
-	a = random.randrange(min_bright,max_bright)
-	brights.append(a)
+	a=random.randrange(0,256)
+	buffer.append((a,(int)(a*0.75),(int)(a*0.5)))
 
 while(True):
 	for i in range(0,num_pixels):
-		brights[i]+=random.randrange(-32,65)
-		if(brights[i]>max_bright):
-			brights[i]=max_bright
-		if(brights[i]<min_bright):
-			brights[i]=min_bright
-		pixels[i]=(gamma[brights[i]], gamma[(int)(brights[i]*0.75)], gamma[(int)(brights[i]*0.5)])
+		buffer[i]=(buffer[i][0]*0.95,buffer[i][1]*0.95,buffer[i][2]*0.95)
+		if(random.randrange(0,100)<twinkleChance):
+			if(random.randrange(0,100)<colorChance):
+				if(random.randrange(0,2)>0):
+					buffer[i]=(255,0,0)
+				else:
+					buffer[i]=(0,255,0)
+			else:
+				buffer[i]=(255,255,255)
+
+		pixels[i]=(gamma[(int)(buffer[i][0])], gamma[(int)(buffer[i][1]*0.75)], gamma[(int)(buffer[i][2]*0.5)])
 	pixels.show()
 	#time.sleep(0.01)
 

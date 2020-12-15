@@ -6,7 +6,7 @@ import time
 
 pixel_pin = board.D18
 
-num_pixels = 110
+num_pixels = 300
 
 ORDER = neopixel.GRB
 
@@ -41,9 +41,9 @@ for i in range(0,num_pixels):
 	colorset.append(wheel(random.randrange(255)));
 pos=0
 while(True):
-	pos+=0.05;
+	pos+=0.1;
 	for i in range(0,num_pixels-1):
 		pixels[i]=getcolor(pos+i)
 	pixels.show()
-	time.sleep(0.03)
+	time.sleep(0.01)
 		

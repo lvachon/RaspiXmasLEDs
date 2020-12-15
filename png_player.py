@@ -7,11 +7,11 @@ import sys
 print("Init pixels")
 pixel_pin = board.D18
 
-num_pixels = 110
+num_pixels = 300
 
 ORDER = neopixel.GRB
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER)
 animations = []
 print("Load animations")
 for i in range(1,len(sys.argv)):
@@ -19,7 +19,7 @@ for i in range(1,len(sys.argv)):
 	print("Loading:"+sys.argv[i])
 	f = open(sys.argv[i],"r")
 	format = f.readline()
-	comment = f.readline()
+	#comment = f.readline()
 	dimensions = f.readline().split()
 	maxval = f.readline()
 	data = f.read()
@@ -49,5 +49,5 @@ while(True):
 			loopCount=0
 			animIndex=(animIndex+1)%animCount
 			print("Animation:"+str(animIndex))
-	time.sleep(0.03)
+	time.sleep(0.01)
 
